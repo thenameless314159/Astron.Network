@@ -17,4 +17,8 @@
     <ProjectReference Include="..\..\src\Astron.Network\Astron.Network.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Threading\" />
+  </ItemGroup>
+
 </Project>
