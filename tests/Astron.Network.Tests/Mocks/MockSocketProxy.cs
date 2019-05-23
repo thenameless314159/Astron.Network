@@ -24,7 +24,11 @@ namespace Astron.Network.Tests.Mocks
         public void Bind(EndPoint endPoint) => _mock.Object.Bind(endPoint);
         public void Listen(int backlog) => _mock.Object.Listen(backlog);
 
-        public Task<ISocketClient> AcceptAsync() => Task.FromResult<ISocketClient>(new MockSocketProxy());
+        public Task<ISocketClient> AcceptAsync()
+        {
+            _mock.Object.AcceptAsync();
+            return Task.FromResult<ISocketClient>(new MockSocketProxy());
+        }
 
         public Task ConnectAsync(string host, int port) => _mock.Object.ConnectAsync(host, port);
 

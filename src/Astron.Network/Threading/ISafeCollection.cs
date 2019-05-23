@@ -6,7 +6,6 @@ namespace Astron.Network.Threading
 {
     public interface ISafeCollection<T>
     {
-        T this[int index] { get; set; }
         int Capacity { get; }
         int Count { get; }
 

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Astron.Network.Abstractions
 {
-    public interface ISocketManager : IAsyncSetup, IDisposable
+    public interface ISocketManager : IDisposable
     {
         Task<ISocketClient> CreateClient();
-        void DestroyClient(ISocketClient socket);
+        void DestroyClient(ISocketClient client);
         Task BroadcastAsync(ReadOnlyMemory<byte> buffer, SocketFlags flags, CancellationToken token = default);
     }
 }
