@@ -8,13 +8,12 @@ using Astron.Network.Framing;
 
 namespace Astron.Network.Abstractions
 {
-    public interface ISocketConnection<TMeta> : IDisposable
+    public interface ISocketConnection<TMeta> : IAsyncSetup, IDisposable
         where TMeta : IMessageMetadata
     {
-        IDuplexPipe        Pipe   { set; }
+        IDuplexPipe Pipe { set; }
         FrameParser<TMeta> Parser { set; }
 
-        Task Setup();
         ValueTask<FlushResult> SendAsync(Frame<TMeta> frame);
     }
 }

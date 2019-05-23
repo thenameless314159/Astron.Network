@@ -13,12 +13,7 @@ namespace Astron.Network.Threading
 
         void Add(T item);
         bool Remove(T item);
-        int IndexOf(T item);
-        void RemoveAt(int index);
         void Clear();
-
-        void Broadcast(Action<T> callback);
-        void Query(Func<ISafeCollection<T>, T> request);
 
         IReadOnlyCollection<T> GetSnapshot();
     }
