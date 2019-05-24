@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using Astron.Network.Abstractions;
 using Astron.Network.Framing;
 
-using Pipelines.Sockets.Unofficial;
-
 namespace Astron.Network
 {
     public abstract class SocketConnection<TMeta> : ISocketConnection<TMeta>
