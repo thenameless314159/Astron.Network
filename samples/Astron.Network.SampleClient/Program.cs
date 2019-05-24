@@ -11,7 +11,7 @@ namespace Astron.Network.SampleClient
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            Console.WriteLine("Usage : on connections end, enter y if you want to continue.");
+            Console.WriteLine("Usage : on connections end, enter 'y' if you want to continue.");
             do
             {
                 try
