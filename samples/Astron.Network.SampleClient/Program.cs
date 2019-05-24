@@ -8,9 +8,10 @@ namespace Astron.Network.SampleClient
 {
     class Program
     {
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            Console.WriteLine("Usage : on connections end, enter y if you want to continue.");
             do
             {
                 try
@@ -25,17 +26,12 @@ namespace Astron.Network.SampleClient
                     for (var i = 0; i < connectionCount; i++)
                         connections.Add(RemoteNetworkConnection.Connect());
 
-                    await Task.WhenAll(connections.Select(async c => await Task.Run(async () =>
-                    {
-                        var conn = await c;
-                        await conn.Setup();
-                    })));
-
-                    Console.WriteLine("Continue ? : y / n");
+                    Parallel.ForEach(connections,
+                        async connect => { await connect.ContinueWith(async t => await t.Result.Setup()); });
                 }
-                catch (Exception e)
+                catch
                 {
-                    Console.WriteLine(e);
+
                 }
             } while (Console.ReadLine() == "y");
         }
