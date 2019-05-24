@@ -69,14 +69,15 @@ namespace Astron.Network
 
         public ValueTask<FlushResult> SendAsync(Frame<TMeta> frame)
         {
+            var writer = Pipe?.Output ?? throw new ObjectDisposedException(ToString());
             var metaLength = Parser.GetMetadataLength(frame.Metadata);
-            var span = Pipe.Output.GetSpan(metaLength);
+            var span = writer.GetSpan(metaLength);
             Parser.WriteMetadata(span, frame.Metadata);
-            Pipe.Output.Advance(metaLength);
+            writer.Advance(metaLength);
 
             return frame.Meta.Length == 0 
-                ? Pipe.Output.FlushAsync(_token) 
-                : Pipe.Output.WriteAsync(frame.Payload, _token);
+                ? writer.FlushAsync(_token) 
+                : writer.WriteAsync(frame.Payload, _token);
         }
 
         protected virtual ValueTask OnCreateAsync() => default;
@@ -88,6 +89,7 @@ namespace Astron.Network
             _cts.Cancel();
             Pipe.Input.Complete();
             Pipe.Output.Complete();
+            Pipe = null;
         }
     }
 }

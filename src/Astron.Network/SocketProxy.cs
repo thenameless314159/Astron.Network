@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Pipelines;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -7,6 +8,8 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using Astron.Network.Abstractions;
+
+using Pipelines.Sockets.Unofficial;
 
 namespace Astron.Network
 {
@@ -32,6 +35,8 @@ namespace Astron.Network
         public Task ConnectAsync(string host, int port) => _socket.ConnectAsync(host, port);
 
         public EndPoint RemoteEndPoint => _socket.RemoteEndPoint;
+
+        public IDuplexPipe CreatePipe() => SocketConnection.Create(_socket);
 
         public void Dispose()
         {

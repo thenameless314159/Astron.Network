@@ -15,7 +15,7 @@ namespace Astron.Network.Tests
     public class SocketConnectionTests
     {
         [Fact]
-        public async Task ShouldInvokeOnCreateAsync__OnReceiveLoopStarted()
+        public async Task Setup_ShouldInvokeOnCreateAsync__OnReceiveLoopStarted()
         {
             var pipe = new FakeDuplexPipe();
             var conn = new FakeConnection { Pipe = pipe, Parser = new FakeFrameParser() };
@@ -26,7 +26,7 @@ namespace Astron.Network.Tests
         }
 
         [Fact]
-        public async Task ShouldInvokeOnDestroyAsync_OnReceiveLoopEnded()
+        public async Task Setup_ShouldInvokeOnDestroyAsync_OnReceiveLoopEnded()
         {
             var pipe = new FakeDuplexPipe();
             var conn = new FakeConnection { Pipe = pipe, Parser = new FakeFrameParser() };
@@ -38,7 +38,7 @@ namespace Astron.Network.Tests
 
 
         [Fact]
-        public async Task ShouldReadFrame_OnReceivedData()
+        public async Task Setup_ShouldReadFrame_OnReceivedData()
         {
             var pipe = new FakeDuplexPipe();
             var conn = new FakeConnection { Pipe = pipe, Parser = new FakeFrameParser()};
@@ -85,6 +85,30 @@ namespace Astron.Network.Tests
 
             var sentBuffer = await pipe.ReadPipeWriter();
             Assert.Equal(length + 4, sentBuffer.Buffer.Length);
+        }
+
+        [Fact]
+        public async Task SendAsync_ShouldThrow_OnDisposed()
+        {
+            var pipe = new FakeDuplexPipe();
+            var conn = new FakeConnection { Pipe = pipe, Parser = new FakeFrameParser() };
+            conn.OnCreate = () => conn.Dispose();
+
+            await conn.Setup();
+            await Assert.ThrowsAsync<ObjectDisposedException>(async () => await conn.SendAsync(
+                new Frame<MessageMetadata>(new ReadOnlySequence<byte>(new byte[0]),
+                    new MessageMetadata {Length = 0})));
+        }
+
+        [Fact]
+        public async Task Setup_ShouldThrow_OnDisposed()
+        {
+            var pipe = new FakeDuplexPipe();
+            var conn = new FakeConnection { Pipe = pipe, Parser = new FakeFrameParser() };
+            conn.OnCreate = () => conn.Dispose();
+
+            await conn.Setup();
+            await Assert.ThrowsAsync<ObjectDisposedException>(async () => await conn.Setup());
         }
 
         private static byte[] _createMessage(int length)
