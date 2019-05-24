@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/thenameless314159/Astron.Network</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/thenameless314159/Astron.Network</RepositoryUrl>
+    <PackageTags>network tcp server connection socket pipelines framing nagle pipeline tpl task</PackageTags>
+    <Description>Unit-tested, efficient and easily extandable implementation of a tcp network server logic using the last pipelines API. This project is based on SimplPipelines.</Description>
+    <Copyright>Copyright 2019</Copyright>
+    <Authors>DrBrooklyn, NamelessK1NG</Authors>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -11,6 +20,13 @@
   <ItemGroup>
     <PackageReference Include="Pipelines.Sockets.Unofficial" Version="2.0.22" />
     <PackageReference Include="System.IO.Pipelines" Version="4.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
