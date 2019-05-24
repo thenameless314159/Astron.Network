@@ -15,6 +15,12 @@ namespace Astron.Network.Framing
             Meta    = metadata;
             Payload = payload.ToArray();
         }
+
+        public Frame(Memory<byte> payload, IMessageMetadata metadata)
+        {
+            Meta    = metadata;
+            Payload = payload;
+        }
     }
 
     public class Frame<T> : Frame where T : IMessageMetadata
@@ -22,6 +28,10 @@ namespace Astron.Network.Framing
         public T Metadata => (T)Meta;
 
         public Frame(ReadOnlySequence<byte> payload, T meta) : base(payload, meta)
+        {
+        }
+
+        public Frame(Memory<byte> payload, T meta) : base(payload, meta)
         {
         }
     }
