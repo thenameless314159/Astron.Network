@@ -87,8 +87,8 @@ namespace Astron.Network
         public void Dispose()
         {
             _cts.Cancel();
-            Pipe.Input.Complete();
-            Pipe.Output.Complete();
+            Pipe?.Input.Complete();
+            Pipe?.Output.Complete();
             Pipe = null;
         }
     }
