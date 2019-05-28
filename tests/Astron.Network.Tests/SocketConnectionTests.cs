@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Buffers;
 using System.Buffers.Binary;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 using Astron.Network.Framing;

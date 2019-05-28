@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Astron.Network.Threading
+namespace Astron.Core.Threading
 {
     public interface ISafeCollection<T>
     {

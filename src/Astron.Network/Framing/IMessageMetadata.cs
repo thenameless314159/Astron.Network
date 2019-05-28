@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Astron.Network.Framing
+﻿namespace Astron.Network.Framing
 {
     public interface IMessageMetadata
     {

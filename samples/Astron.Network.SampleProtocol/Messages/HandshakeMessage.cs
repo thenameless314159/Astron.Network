@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Astron.Network.SampleProtocol.Messages
+﻿namespace Astron.Network.SampleProtocol.Messages
 {
     public class HandshakeMessage
     {

@@ -11,6 +11,9 @@
     <Description>Unit-tested, efficient and easily extandable implementation of a tcp network server logic using the last pipelines API. This project is based on SimplPipelines.</Description>
     <Copyright>Copyright 2019</Copyright>
     <Authors>DrBrooklyn, NamelessK1NG</Authors>
+    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -32,6 +35,10 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Astron.Core\Astron.Core.csproj" />
   </ItemGroup>
 
 </Project>

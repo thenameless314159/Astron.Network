@@ -13,11 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Astron.Network.Tests", "tes
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{A4082DD9-994A-4678-8F8D-62A4F3649B7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Astron.Network.SampleServer", "samples\Astron.Network.SampleServer\Astron.Network.SampleServer.csproj", "{2EEB0105-FC02-4045-9972-7467AD41AA19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Astron.Network.SampleServer", "samples\Astron.Network.SampleServer\Astron.Network.SampleServer.csproj", "{2EEB0105-FC02-4045-9972-7467AD41AA19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Astron.Network.SampleProtocol", "samples\Astron.Network.SampleProtocol\Astron.Network.SampleProtocol.csproj", "{5B18400E-94B0-4EE9-99A5-CDC51A470EF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Astron.Network.SampleProtocol", "samples\Astron.Network.SampleProtocol\Astron.Network.SampleProtocol.csproj", "{5B18400E-94B0-4EE9-99A5-CDC51A470EF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Astron.Network.SampleClient", "samples\Astron.Network.SampleClient\Astron.Network.SampleClient.csproj", "{C09277B8-765E-4BD4-B866-D03D481963CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Astron.Network.SampleClient", "samples\Astron.Network.SampleClient\Astron.Network.SampleClient.csproj", "{C09277B8-765E-4BD4-B866-D03D481963CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Astron.Core", "src\Astron.Core\Astron.Core.csproj", "{CA93ADC9-F501-47AF-8317-7F7837515DEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{C09277B8-765E-4BD4-B866-D03D481963CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C09277B8-765E-4BD4-B866-D03D481963CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C09277B8-765E-4BD4-B866-D03D481963CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA93ADC9-F501-47AF-8317-7F7837515DEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA93ADC9-F501-47AF-8317-7F7837515DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA93ADC9-F501-47AF-8317-7F7837515DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA93ADC9-F501-47AF-8317-7F7837515DEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{2EEB0105-FC02-4045-9972-7467AD41AA19} = {A4082DD9-994A-4678-8F8D-62A4F3649B7B}
 		{5B18400E-94B0-4EE9-99A5-CDC51A470EF5} = {A4082DD9-994A-4678-8F8D-62A4F3649B7B}
 		{C09277B8-765E-4BD4-B866-D03D481963CF} = {A4082DD9-994A-4678-8F8D-62A4F3649B7B}
+		{CA93ADC9-F501-47AF-8317-7F7837515DEC} = {0FC010F1-697E-4D7E-8714-1ED73FD625C3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D79996EE-0730-481C-AD18-12E56FE9A929}

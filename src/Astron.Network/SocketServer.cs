@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO.Pipelines;
-using System.Net;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+using Astron.Core;
 using Astron.Network.Abstractions;
 using Astron.Network.Framing;
 
-using Pipelines.Sockets.Unofficial;
 
 namespace Astron.Network
 {

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Text;
 
-namespace Astron.Network.Threading
+namespace Astron.Core.Threading
 {
     public class SafeList<T> : ISafeCollection<T>
     {
