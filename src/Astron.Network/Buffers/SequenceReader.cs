@@ -44,5 +44,33 @@ namespace Astron.Network.Buffers
             _input = _input.Slice(size);
             return true;
         }
+
+        /// <summary>
+        /// Try to read a <see cref="T"/> with the <see cref="ReadDelegate{T}"/> specified as an arg.
+        /// Then advance the current position according to the specified <see cref="size"/>.
+        /// </summary>
+        /// <typeparam name="T">The type to read.</typeparam>
+        /// <param name="read">The delegate to read the <see cref="T"/>. Must be a method from <see cref="BinaryPrimitives"/></param>
+        /// <param name="size">The size of the current value to read.</param>
+        /// <param name="result">The result returned.</param>
+        /// <returns>Returns true if the read was successful, else returns false.</returns>
+        public bool TryRead<T>(ReadDelegate<T> read, int size, out T result)
+        {
+            result = default;
+            if (size > _maxStackalloc) return false;
+            if (size > _input.Length) return false;
+
+            if (_input.First.Length >= size)
+                result = read(_input.First.Span);
+            else
+            {
+                Span<byte> local = stackalloc byte[size];
+                _input.Slice(size).CopyTo(local);
+                result = read(local);
+            }
+
+            _input = _input.Slice(size);
+            return true;
+        }
     }
 }
